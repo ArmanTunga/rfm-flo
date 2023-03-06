@@ -1,5 +1,7 @@
 # Customer Segmentation with RFM using [FLO](https://www.flo.com.tr/)'s Dataset
 
+![RFM Segments](https://raw.githubusercontent.com/ArmanTunga/rfm-flo/6159dd4debeb1a9b1d0295337d3ebb34963df2ea/src/rfm-segments.png)
+
 This is the RFM _Real Life Case Study_ of [Miuul](https://miuul.com/) Data Science & Machine Learning Bootcamp
 
 ## About FLO
