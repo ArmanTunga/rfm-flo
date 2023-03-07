@@ -90,11 +90,13 @@ df = df_.copy()
 df.head(10)
 # b. Variable names,
 df.columns
-# c. Descriptive statistics,
+# c. Shape,
+df.shape
+# d. Descriptive statistics,
 df.describe().T
-# d. Null value,
+# e. Null value,
 df.isnull().sum()
-# e. Variable types, review.
+# f. Variable types, review.
 df.info()  # df.dtypes gives only types
 
 # 3. Omnichannel means that customers shop from both online and offline platforms. Create new variables for each customer's total purchases and spend.
@@ -221,10 +223,11 @@ rfm.groupby("segment")["recency", "frequency", "monetary"].mean()
 
 # a. FLO includes a new women's shoe brand. The product prices of the brand it includes are above the general customer preferences.
 # For this reason, customers in the profile who will be interested in the promotion of the brand and product sales are requested to be contacted privately.
-# These customers were planned to be loyal(loyal and champions) and female shoppers. Save the id numbers of the customers to the csv file as new_brand_target_customer_id.cvs.
+# These customers were planned to be loyal(loyal and champions) and female shoppers who's monetary is bigger than 250. Save the id numbers of the customers to the csv file as new_brand_target_customer_id.cvs.
 rfm.head()
 rfm["segment"].unique()  # to see how we named loyal customers and champions.
-loyal_customers_champions = rfm[rfm["segment"].isin(["loyal_customers", "champions"])]["customer_id"]
+loyal_customers_champions = rfm[(rfm["segment"].isin(["loyal_customers", "champions"])) & (rfm["monetary"] > 250)][
+    "customer_id"]
 
 loyal_customers_champions.head()
 type(loyal_customers_champions)  # pandas.core.series.Series
