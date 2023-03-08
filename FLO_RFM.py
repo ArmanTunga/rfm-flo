@@ -187,7 +187,7 @@ rfm.columns = ["customer_id", "recency", "frequency", "monetary"]
 #  with the help of qcut and recording these scores as recency_score, frequency_score and monetary_score
 rfm["recency_score"] = pd.qcut(x=rfm["recency"], q=5, labels=["5", "4", "3", "2", "1"])
 rfm["frequency_score"] = pd.qcut(x=rfm["frequency"].rank(method="first"), q=5, labels=["1", "2", "3", "4", "5"])
-rfm["monetary_score"] = pd.qcut(x=rfm["monetary"].rank(method="first"), q=5, labels=["1", "2", "3", "4", "5"])
+rfm["monetary_score"] = pd.qcut(x=rfm["monetary"], q=5, labels=["1", "2", "3", "4", "5"])
 
 # Expressing recency_score and frequency_score as a single variable and saving it as RF_SCORE
 rfm["RF_SCORE"] = rfm["recency_score"].astype(str) + rfm["frequency_score"].astype(str)
