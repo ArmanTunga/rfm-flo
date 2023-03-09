@@ -317,7 +317,7 @@ def create_rfm(dataframe: pd.DataFrame, csv: bool = False, file_name: str = "rfm
     #  Converting Recency, Frequency and Monetary metrics to scores between 1-5
     rfm["recency_score"] = pd.qcut(x=rfm["recency"], q=5, labels=["5", "4", "3", "2", "1"])
     rfm["frequency_score"] = pd.qcut(x=rfm["frequency"].rank(method="first"), q=5, labels=["1", "2", "3", "4", "5"])
-    rfm["monetary_score"] = pd.qcut(x=rfm["monetary"].rank(method="first"), q=5, labels=["1", "2", "3", "4", "5"])
+    rfm["monetary_score"] = pd.qcut(x=rfm["monetary"], q=5, labels=["1", "2", "3", "4", "5"])
 
     # Expressing recency_score and frequency_score as a single variable and saving it as RF_SCORE
     rfm["RF_SCORE"] = rfm["recency_score"].astype(str) + rfm["frequency_score"].astype(str)
